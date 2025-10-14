@@ -1,11 +1,18 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from 'next-themes';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,11 +32,13 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
+    { id: 'about', label: 'O mnie' },
+    { id: 'projects', label: 'Projekty' },
     { id: 'blog', label: 'Blog' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'contact', label: 'Kontakt' },
   ];
+
+  if (!mounted) return null;
 
   return (
     <nav
@@ -59,7 +68,7 @@ export default function Navigation() {
               </button>
             ))}
             <button
-              onClick={toggleTheme}
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle theme"
             >
@@ -73,7 +82,7 @@ export default function Navigation() {
 
           <div className="md:hidden flex items-center space-x-2">
             <button
-              onClick={toggleTheme}
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle theme"
             >

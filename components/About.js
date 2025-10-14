@@ -31,12 +31,10 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            About Me
+            O mnie
           </h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl">
-            DevOps engineer with a passion for automation, infrastructure as code, and building
-            reliable, scalable systems. I bridge the gap between development and operations to
-            deliver seamless deployments and maintain robust infrastructure.
+            DevOps engineer zapalony do automatyzacji, infrastruktury jako kodu i budowania niezawodnych, skalowalnych systemów. Łączę świat developmentu i operacji, aby dostarczać bezproblemowe wdrażania i utrzymywać solidną infrastrukturę.
           </p>
         </div>
 

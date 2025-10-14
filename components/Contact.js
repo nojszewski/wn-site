@@ -1,6 +1,8 @@
+'use client';
+
 import { useState } from 'react';
 import { Mail, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
+import pb from '../lib/pb';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,7 +12,7 @@ export default function Contact() {
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,17 +21,11 @@ export default function Contact() {
     setSuccess(false);
 
     try {
-      const { error: submitError } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-          },
-        ]);
-
-      if (submitError) throw submitError;
+      await pb.collection('contact_messages').create({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
 
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
@@ -37,7 +33,7 @@ export default function Contact() {
       setTimeout(() => setSuccess(false), 5000);
     } catch (err) {
       console.error('Error submitting form:', err);
-      setError('Failed to send message. Please try again or contact me directly via email.');
+      setError('Błąd podczas wysyłania wiadomości. Spróbuj ponownie.');
     } finally {
       setLoading(false);
     }
@@ -55,17 +51,17 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch
+            Skontaktuj się
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Have a project in mind or want to collaborate? Let's connect!
+            Masz projekt na głowie lub chcesz współpracować? Chodźmy!
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Contact Information
+              Informacje kontaktowe
             </h3>
 
             <div className="space-y-6">
@@ -121,7 +117,7 @@ export default function Contact() {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Name
+                  Imię
                 </label>
                 <input
                   type="text"
@@ -131,7 +127,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="Your Name"
+                  placeholder="Twoje imię"
                 />
               </div>
 
@@ -150,7 +146,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="your.email@example.com"
+                  placeholder="twoj.email@example.com"
                 />
               </div>
 
@@ -159,7 +155,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
-                  Message
+                  Wiadomość
                 </label>
                 <textarea
                   id="message"
@@ -169,7 +165,7 @@ export default function Contact() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                  placeholder="Your message..."
+                  placeholder="Twoja wiadomość..."
                 />
               </div>
 
@@ -183,7 +179,7 @@ export default function Contact() {
                 <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
                   <p className="text-green-800 dark:text-green-300 text-sm">
-                    Message sent successfully! I'll get back to you soon.
+                    Wiadomość wysłana! Odpowiem wkrótce.
                   </p>
                 </div>
               )}
@@ -193,7 +189,7 @@ export default function Contact() {
                 disabled={loading}
                 className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                <span>{loading ? 'Sending...' : 'Send Message'}</span>
+                <span>{loading ? 'Wysyłanie...' : 'Wyślij wiadomość'}</span>
                 <Send className="w-5 h-5" />
               </button>
             </form>

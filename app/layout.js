@@ -1,7 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "../components/Header";
-// import Footer from "../components/Footer";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,18 +15,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: process.env.SITE_TITLE || "Nojszew",
+  title: "Nojszew - DevOps • Programista • Administrator",
   description: "DevOps • Programista • Administrator",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl">
-      <body className="bg-[#0b0f12] text-white">
-        <Header />
-        <main className="pt-20 max-w-4xl mx-auto px-6">{children}</main>
+    <html lang="pl" suppressHydrationWarning>
+      <body 
+        className={`${geistSans.variable} ${geistMono.variable} bg-white dark:bg-gray-900 transition-colors`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem storageKey="theme">
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
-
