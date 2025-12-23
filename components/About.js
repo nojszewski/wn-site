@@ -2,7 +2,7 @@ export default function About() {
   const skillCategories = [
     {
       title: 'DevOps & Infrastructure',
-      skills: ['Docker', 'Kubernetes', 'CI/CD', 'Terraform', 'Ansible', 'Jenkins'],
+      skills: ['Docker', 'Kubernetes', 'CI/CD', 'Proxmox', 'Ansible'],
     },
     {
       title: 'Cloud Platforms',
@@ -10,19 +10,19 @@ export default function About() {
     },
     {
       title: 'Programming',
-      skills: ['Python', 'Go', 'JavaScript', 'Bash', 'TypeScript'],
+      skills: ['JavaScript', 'Python', 'TypeScript'],
     },
     {
       title: 'Monitoring & Security',
-      skills: ['Prometheus', 'Grafana', 'ELK Stack', 'Security Hardening'],
+      skills: ['Zabbix', 'Grafana', 'InfluxDB', 'Security Hardening'],
     },
     {
       title: 'Containerization',
-      skills: ['Docker', 'Podman', 'Docker Compose', 'Container Orchestration'],
+      skills: ['Docker', 'Docker Compose'],
     },
     {
       title: 'System Administration',
-      skills: ['Linux', 'Unix', 'Networking', 'DNS', 'Load Balancing'],
+      skills: ['Linux', 'Windows Server', 'Networking', 'MikroTik', 'Ubiquiti', 'Load Balancing'],
     },
   ];
 

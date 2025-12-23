@@ -27,13 +27,13 @@ export default function Hero() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 animate-slide-up delay-100">
-            DevOps Engineer &
+            Wojtek Nojszewski
             <br />
-            <span className="text-blue-600 dark:text-blue-400">Developer</span>
+            <span className="text-4xl sm:text-5xl lg:text-6xl text-blue-600 dark:text-blue-400">DevOps Engineer</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto animate-slide-up delay-200">
-            Buduję stabilne i wydajne infra oraz aplikacje. Proxmox, 10GbE, automatyzacja, backupy, monitoring.
+            Buduję stabilne i wydajne infra oraz aplikacje. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
 
           <button

@@ -54,7 +54,7 @@ export default function Contact() {
             Skontaktuj się
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Masz projekt na głowie lub chcesz współpracować? Chodźmy!
+            Masz projekt na głowie lub chcesz nawiązać współpracę? Chętnie porozmawiam!
           </p>
         </div>
 
