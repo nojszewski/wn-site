@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Nojszew - DevOps • Programista • Administrator",
+  title: "Nojszewski - DevOps • Programista • Administrator",
   description: "DevOps • Programista • Administrator",
 };
 

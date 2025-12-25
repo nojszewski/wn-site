@@ -52,9 +52,9 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <button
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-xl font-bold text-gray-900 dark:text-white hover:cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
-            Portfolio
+            Wojtek Nojszewski
           </button>
 
           <div className="hidden md:flex items-center space-x-8">

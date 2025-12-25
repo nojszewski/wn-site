@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { Github, ExternalLink, Loader2 } from 'lucide-react';
 import pb from '../lib/pb';
-import Link from 'next/link';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -19,11 +18,12 @@ export default function Projects() {
       setLoading(true);
       const records = await pb.collection('projects').getList(1, 6, {
         sort: '-created',
+        requestKey: null
       });
       setProjects(records.items);
     } catch (err) {
       console.error('Error fetching projects:', err);
-      setError('Błąd podczas pobierania projektów');
+      setError('Błąd podczas pobierania projektów...');
       setProjects([]);
     } finally {
       setLoading(false);
@@ -125,7 +125,7 @@ export default function Projects() {
                       className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       <ExternalLink className="w-5 h-5" />
-                      <span className="text-sm font-medium">Demo</span>
+                      <span className="text-sm font-medium">Strona</span>
                     </a>
                   )}
                 </div>
