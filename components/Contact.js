@@ -78,8 +78,8 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* <a
-                href="https://github.com"
+              <a
+                href="https://github.com/nojszewski"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-900 rounded-lg hover:shadow-lg transition-all duration-300 group"
@@ -89,12 +89,12 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 dark:text-white">GitHub</p>
-                  <p className="text-gray-600 dark:text-gray-400">github.com/yourusername</p>
+                  <p className="text-gray-600 dark:text-gray-400">@nojszewski</p>
                 </div>
-              </a> */}
+              </a>
 
               <a
-                href="https://discord.com/users/nojszewski"
+                href="https://discord.com/users/888705611095756811"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-4 p-4 bg-white dark:bg-gray-900 rounded-lg hover:shadow-lg transition-all duration-300 group"

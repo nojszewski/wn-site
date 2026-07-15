@@ -1,36 +1,36 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { Calendar, Clock, ArrowRight, Loader2 } from 'lucide-react';
-import Link from 'next/link';
-import pb from '../lib/pb';
+import { useState, useEffect } from 'react'
+import { Calendar, Clock, ArrowRight, Loader2 } from 'lucide-react'
+import Link from 'next/link'
+import pb from '../lib/pb'
 
 export default function Blog() {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
 
   const fetchPosts = async () => {
     try {
-      setLoading(true);
+      setLoading(true)
       const records = await pb.collection('posts').getList(1, 1, {
         filter: 'published = true',
         sort: '-created',
         requestKey: null
-      });
-      setPosts(records.items);
+      })
+      setPosts(records.items) 
     } catch (err) {
-      console.error('Error fetching blog posts:', err);
-      setError('Błąd podczas pobierania postów');
-      setPosts([]);
+      console.error('Error fetching blog posts:', err)
+      setError('Błąd podczas pobierania postów')
+      setPosts([])
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);

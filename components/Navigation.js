@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
-export default function Navigation() {
+const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -62,7 +62,7 @@ export default function Navigation() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium hover:cursor-pointer"
               >
                 {link.label}
               </button>
@@ -125,3 +125,5 @@ export default function Navigation() {
     </nav>
   );
 }
+
+export default Navigation

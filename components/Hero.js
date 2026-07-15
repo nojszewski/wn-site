@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
-import { ChevronDown, User } from 'lucide-react';
-import Particles from './Particles';
+import { ChevronDown, User } from 'lucide-react'
+import Particles from './Particles'
 
-export default function Hero() {
+const Hero = () => {
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
+    const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' })
     }
   };
 
@@ -33,12 +33,12 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto animate-slide-up delay-200">
-            Buduję stabilne i wydajne infra oraz aplikacje. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Buduję stabilne i wydajne infrastruktury oraz aplikacje. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
 
           <button
             onClick={() => scrollToSection('about')}
-            className="inline-flex items-center space-x-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 animate-slide-up delay-300"
+            className="inline-flex items-center space-x-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all hover:cursor-pointer"
           >
             <span>Dowiedz się więcej</span>
             <ChevronDown className="w-5 h-5" />
@@ -52,3 +52,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default Hero

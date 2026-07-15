@@ -13,16 +13,16 @@ export default function Footer() {
 
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com"
+              href="https://github.com/nojszewski"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-gray-600 light:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/nojszewski"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -31,7 +31,7 @@ export default function Footer() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:wojciech@nojszewski.net"
               className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="Email"
             >
